@@ -1,8 +1,6 @@
-<p align="center"><a href="http://isomorphicgo.org" target="_blank"><img src="https://github.com/isomorphicgo/isogoapp/blob/master/static/images/isomorphic_go_logo.png"></a></p>
-
 # Kick
 
-[![Go Report Card](https://goreportcard.com/badge/github.com/isomorphicgo/kick)](https://goreportcard.com/report/github.com/isomorphicgo/kick)
+[![Go Report Card](https://goreportcard.com/badge/go.isomorphicgo.org/go.isomorphicgo.org/go/kick)](https://goreportcard.com/report/go.isomorphicgo.org/go/kick)
 
 A lightweight mechanism to provide an *instant kickstart* to a Go web server instance, upon the modification of a Go source file within a particular project directory (including any subdirectories).
 
@@ -15,10 +13,10 @@ Kick works on Windows and Unix-like operating systems (e.g., BSD, Linux, Mac OS)
 
 ## Installation
 
-Before installing Kick, it is recommended, to install the barebones [isogoapp](https://github.com/isomorphicgo/isogoapp) first – since it will provide you with an example of how to use kick.
+Before installing Kick, it is recommended, to install the barebones [isogoapp](https://go.isomorphicgo.org/go/isogoapp) first – since it will provide you with an example of how to use kick.
 
 ### Get Kick
-`go get -u github.com/isomorphicgo/kick`
+`go get -u go.isomorphicgo.org/go/kick`
 
 ## Usage
 
@@ -44,7 +42,7 @@ If your Go project is not using GopherJS, you can feel free to omit the `gopherj
 
 ### Verify That Kick Is Functioning
 
-Assuming that you've installed the [isogoapp](https://github.com/isomorphicgo/isogoapp), and you have issued the kick command to run the web server instance:
+Assuming that you've installed the [isogoapp](https://go.isomorphicgo.org/go/isogoapp), and you have issued the kick command to run the web server instance:
 
 Access the [test page](http://localhost:8080) for the `isogoapp` using your web browser.
 
@@ -59,4 +57,4 @@ In the command line prompt where you issued the kick command, take note of the "
 More information on the benefits of Isomorphic Go applications can be found at the [Isomorphic Go Website](http://isomorphicgo.org).
 
 ## License
-Kick is licensed under the BSD License. Read the [LICENSE](https://github.com/isomorphicgo/kick/blob/master/LICENSE) file for more information.
+Kick is licensed under the BSD License. Read the [LICENSE](https://go.isomorphicgo.org/go/kick/src/branch/master/LICENSE) file for more information.
