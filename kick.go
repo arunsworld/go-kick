@@ -59,7 +59,6 @@ func restart(cmd *exec.Cmd) *exec.Cmd {
 
 func initializeWatcher(shouldRestart chan bool, dirList []string) {
 
-	supportedExtensions := map[string]int{".go": 1, ".html": 1, ".tmpl": 1}
 	watcher, err := fsnotify.NewWatcher()
 	if err != nil {
 		log.Fatal(err)
@@ -73,9 +72,7 @@ func initializeWatcher(shouldRestart chan bool, dirList []string) {
 			case event := <-watcher.Events:
 
 				if event.Op == fsnotify.Write || event.Op == fsnotify.Rename {
-					if _, ok := supportedExtensions[filepath.Ext(event.Name)]; ok {
-						shouldRestart <- true
-					}
+					shouldRestart <- true
 				}
 
 			case err := <-watcher.Errors:
@@ -86,11 +83,6 @@ func initializeWatcher(shouldRestart chan bool, dirList []string) {
 		}
 	}()
 
-	err = watcher.Add(appPath)
-	if err != nil {
-		log.Fatal(err)
-	}
-	// watch subdirectories also
 	for _, element := range dirList {
 		watcher.Add(element)
 	}
@@ -145,11 +137,14 @@ func main() {
 		}
 	}
 
+	supportedExtensions := map[string]int{".go": 1, ".html": 1, ".tmpl": 1}
 	dirList := []string{}
 	filepath.Walk(appPath, func(path string, f os.FileInfo, err error) error {
 
-		if f.IsDir() == true {
-			dirList = append(dirList, path)
+		if f.IsDir() == false {
+			if _, ok := supportedExtensions[filepath.Ext(path)]; ok {
+				dirList = append(dirList, path)
+			}
 		}
 		return nil
 	})
